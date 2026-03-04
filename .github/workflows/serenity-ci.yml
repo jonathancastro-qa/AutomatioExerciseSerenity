@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - qa
+  pull_request:
+    branches:
+      - qa
   workflow_dispatch:
 
 permissions:
@@ -69,6 +72,16 @@ jobs:
             -Dserenity.outputDirectory=target/site/serenity \
             -e -X
 
+      # 🔹 6.1. Guardar reportes de fallos Maven (solo si falla)
+      - name: Guardar failsafe-reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failsafe-reports
+          path: |
+            target/failsafe-reports/
+            target/surefire-reports/
+
       # 🔹 7. Regenerar reporte Serenity
       - name: Regenerar reporte Serenity
         if: success() || failure()
@@ -76,10 +89,12 @@ jobs:
 
       # 🔹 8. Verificar contenido del reporte
       - name: Verificar contenido del reporte
+        if: success() || failure()
         run: ls -l target/site/serenity
 
       # 🔹 9. Guardar reporte como artefacto
       - name: Guardar reporte Serenity como artefacto
+        if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
           name: reporte-serenity
