@@ -40,14 +40,19 @@ jobs:
       # 4. Instalar Chrome for Testing y ChromeDriver compatible
       - name: Instalar Chrome for Testing con ChromeDriver
         run: |
+          # Eliminar Chrome del sistema para evitar conflictos de version
+          sudo apt-get remove -y google-chrome-stable || true
+          sudo rm -f /usr/bin/google-chrome /usr/bin/chromium-browser
+
+          # Instalar Chrome for Testing (version Stable)
           mkdir -p /opt/chrome
           curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
             | jq -r '.channels.Stable.downloads.chrome[] | select(.platform=="linux64") | .url' \
             | xargs wget -O chrome-linux.zip
           unzip chrome-linux.zip -d /opt/chrome
-          sudo rm -f /usr/bin/google-chrome
           sudo ln -s /opt/chrome/chrome-linux64/chrome /usr/bin/google-chrome
 
+          # Instalar ChromeDriver de la misma version Stable
           curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
             | jq -r '.channels.Stable.downloads.chromedriver[] | select(.platform=="linux64") | .url' \
             | xargs wget -O chromedriver-linux.zip
@@ -73,7 +78,16 @@ jobs:
             -Dserenity.outputDirectory=target/site/serenity \
             -e -X
 
-      # 6.1. Guardar reportes de fallos Maven (solo si falla)
+      # 6.1. Imprimir errores de failsafe directamente en el log
+      - name: Imprimir errores de failsafe
+        if: failure()
+        run: |
+          echo "===== FAILSAFE REPORTS ====="
+          find target/failsafe-reports -name "*.txt" | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
+          echo "===== SUREFIRE REPORTS ====="
+          find target/surefire-reports -name "*.txt" 2>/dev/null | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
+
+      # 6.2. Guardar reportes de fallos Maven como artefacto
       - name: Guardar failsafe-reports
         if: failure()
         uses: actions/upload-artifact@v4
