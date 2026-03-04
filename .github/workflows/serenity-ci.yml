@@ -18,11 +18,11 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      # 🔹 1. Checkout del repositorio
+      # 1. Checkout del repositorio
       - name: Checkout del repositorio
         uses: actions/checkout@v4
 
-      # 🔹 2. Configurar JDK 21
+      # 2. Configurar JDK 21
       - name: Configurar JDK 21
         uses: actions/setup-java@v4
         with:
@@ -30,14 +30,14 @@ jobs:
           java-version: 21
           cache: maven
 
-      # 🔹 3. Instalar dependencias gráficas necesarias
-      - name: Instalar dependencias gráficas
+      # 3. Instalar dependencias graficas necesarias
+      - name: Instalar dependencias graficas
         run: |
           sudo apt-get update
           sudo apt-get install -y jq wget unzip xvfb \
             libnss3 libxss1 libasound2t64 fonts-liberation libatk-bridge2.0-0 libgtk-3-0
 
-      # 🔹 4. Instalar Chrome for Testing y ChromeDriver compatible
+      # 4. Instalar Chrome for Testing y ChromeDriver compatible
       - name: Instalar Chrome for Testing con ChromeDriver
         run: |
           mkdir -p /opt/chrome
@@ -55,24 +55,25 @@ jobs:
           chmod +x chromedriver-linux64/chromedriver
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 
-      # 🔹 5. Diagnóstico: verificar rutas y versiones
-      - name: Verificar instalación de Chrome y ChromeDriver
+      # 5. Verificar instalacion de Chrome y ChromeDriver
+      - name: Verificar instalacion de Chrome y ChromeDriver
         run: |
           which google-chrome
           google-chrome --version
           which chromedriver
           chromedriver --version
 
-      # 🔹 6. Ejecutar pruebas Serenity con Xvfb y flags adicionales
+      # 6. Ejecutar pruebas Serenity con Xvfb
       - name: Ejecutar pruebas Serenity
         run: |
           xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' \
           mvn clean verify -Dwebdriver.driver=chrome \
+            -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver \
             -Dchrome.switches="--headless,--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--remote-debugging-port=9222" \
             -Dserenity.outputDirectory=target/site/serenity \
             -e -X
 
-      # 🔹 6.1. Guardar reportes de fallos Maven (solo si falla)
+      # 6.1. Guardar reportes de fallos Maven (solo si falla)
       - name: Guardar failsafe-reports
         if: failure()
         uses: actions/upload-artifact@v4
@@ -82,17 +83,17 @@ jobs:
             target/failsafe-reports/
             target/surefire-reports/
 
-      # 🔹 7. Regenerar reporte Serenity
+      # 7. Regenerar reporte Serenity
       - name: Regenerar reporte Serenity
         if: success() || failure()
         run: mvn serenity:aggregate
 
-      # 🔹 8. Verificar contenido del reporte
+      # 8. Verificar contenido del reporte
       - name: Verificar contenido del reporte
         if: success() || failure()
         run: ls -l target/site/serenity
 
-      # 🔹 9. Guardar reporte como artefacto
+      # 9. Guardar reporte como artefacto
       - name: Guardar reporte Serenity como artefacto
         if: success() || failure()
         uses: actions/upload-artifact@v4
@@ -100,7 +101,7 @@ jobs:
           name: reporte-serenity
           path: target/site/serenity
 
-      # 🔹 10. Publicar en GitHub Pages
+      # 10. Publicar en GitHub Pages
       - name: Publicar reporte en GitHub Pages
         if: success() || failure()
         uses: peaceiris/actions-gh-pages@v3
