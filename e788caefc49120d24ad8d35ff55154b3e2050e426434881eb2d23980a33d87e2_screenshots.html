@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="bootstrap-icons/bootstrap-icons.css">
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.13.1/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.13.1/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.13.1/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/>
+<!--CHART.JS-->
+<script src="chartjs/chart.js"></script>
+<script src="chartjs/chartjs-plugin-datalabels@2.0.0.min.js"></script>
+<script src="chartjs/patternomaly.min.js"></script>
+<script>
+    // Register the plugin to all charts:
+    Chart.register(ChartDataLabels);
+</script>
+<!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle">Prueba Automationexercise</span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="35acd25061ef968d46e36d98312e2afc90fcd7cd67aaf7e2cb466a6a3aed549f.html">Cart</a></span>
+                > <span class="truncate-60"><a
+                    href="e788caefc49120d24ad8d35ff55154b3e2050e426434881eb2d23980a33d87e2.html">El usuario observa un modal de confirmacion al agregar productos al carrito de compras </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="bi bi-journal-check"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 04-03-2026 06:45</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fs-2 bi bi-chat-left-quote large-icon"></i>
+                                    <span class="story-header-title">Carrito De Compras </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Como usuario logueado exitosamente en la aplicación<br />
+Quiero validar la interacción y actualización de UI del carrito de compras<br />
+Para asegurarme de que se puede navegar,  actualizar y elminar productos exitosamente
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="18caf0bc142498005f7298569fc6d397d6e1c2e15f63c1e607327758ac310dbd.html">Funcionalidad Carrito
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="6c5512236937b92cd7a296b24edb966c2bd94be46b8910f8b129a42d6150eb25.html">1 To 10 Seconds
+                                        (Duration)
+                                </a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="bi bi-tag-fill"></i>&nbsp;<a class="tagLink" style="background:default;" href="47e73a2eb866ebb939b689c87c59af2366c6929d854a27bf7c1aac86604aa54f.html">Modal Confirmacion
+                                </a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">El usuario observa un modal de confirmacion al agregar productos al carrito de compras
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" Given que el usuario ha iniciado sesi&oacute;n exitosamente en automationexercise.com" width="0"/>
+                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User abre la p&aacute;gina automationexercise.com" width="0"/>
+                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User opens the browser at https://automationexercise.com/" width="0"/>
+                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User abre la p&aacute;gina automationexercise.com (completed)" width="0"/>
+                <img src="a85b93b50739d80b9162d954263899e53c46daebd5fc4469d906ad32e1c13606.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN" width="0"/>
+                <img src="a85b93b50739d80b9162d954263899e53c46daebd5fc4469d906ad32e1c13606.png" title=" User clicks on Opci&oacute;n dentro del menu con el texto 'Signup / Login' en la pagina principal" width="0"/>
+                <img src="a85b93b50739d80b9162d954263899e53c46daebd5fc4469d906ad32e1c13606.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN (completed)" width="0"/>
+                <img src="7f5352b861622ffdb0e24c7e5f93ca002654c2dced375949e1ad0ed5afaae813.png" title=" User ingresa credenciales v&aacute;lidas" width="0"/>
+                <img src="7f5352b861622ffdb0e24c7e5f93ca002654c2dced375949e1ad0ed5afaae813.png" title=" User ingresa email" width="0"/>
+                <img src="7f5352b861622ffdb0e24c7e5f93ca002654c2dced375949e1ad0ed5afaae813.png" title=" User enters 'test@flare.com' into Campo Email" width="0"/>
+                <img src="7f5352b861622ffdb0e24c7e5f93ca002654c2dced375949e1ad0ed5afaae813.png" title=" User ingresa email (completed)" width="0"/>
+                <img src="ca607260c9c72807e08307dda9c752c122552db41172c36113e887c125359216.png" title=" User ingresa password" width="0"/>
+                <img src="ca607260c9c72807e08307dda9c752c122552db41172c36113e887c125359216.png" title=" User enters 'Test2025' into Campo Password" width="0"/>
+                <img src="ca607260c9c72807e08307dda9c752c122552db41172c36113e887c125359216.png" title=" User ingresa password (completed)" width="0"/>
+                <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User Hace click en el bot&oacute;n Login" width="0"/>
+                <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User clicks on Bot&oacute;n de Login" width="0"/>
+                <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User Hace click en el bot&oacute;n Login (completed)" width="0"/>
+                <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User ingresa credenciales v&aacute;lidas (completed)" width="0"/>
+                <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" Given que el usuario ha iniciado sesi&oacute;n exitosamente en automationexercise.com (completed)" width="0"/>
+                <img src="34ae3f4c678f71ac9a27ae91b3dfa9b7758b6495bd49a4474b0aa75d5760ec86.png" title=" When hace click en el boton Add to cart de un producto" width="0"/>
+                <img src="34ae3f4c678f71ac9a27ae91b3dfa9b7758b6495bd49a4474b0aa75d5760ec86.png" title=" User hace click en el boton Add to cart del producto Blue Top" width="0"/>
+                <img src="34ae3f4c678f71ac9a27ae91b3dfa9b7758b6495bd49a4474b0aa75d5760ec86.png" title=" User clicks on Producto Blue Top del inventario" width="0"/>
+                <img src="34ae3f4c678f71ac9a27ae91b3dfa9b7758b6495bd49a4474b0aa75d5760ec86.png" title=" User hace click en el boton Add to cart del producto Blue Top (completed)" width="0"/>
+                <img src="34ae3f4c678f71ac9a27ae91b3dfa9b7758b6495bd49a4474b0aa75d5760ec86.png" title=" When hace click en el boton Add to cart de un producto (completed)" width="0"/>
+                <img src="e9d576544d2e710d247218caf12e1cb890a4602e5eb93d4bbeabd018e655148a.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
+| Your product has been added to cart. |" width="0"/>
+                <img src="e9d576544d2e710d247218caf12e1cb890a4602e5eb93d4bbeabd018e655148a.png" title=" Then Se muestra el mensaje de confirmaci&amp;oacute;n: Your product has been added to cart. should be 'Your product has been added to cart.'" width="0"/>
+                <img src="e9d576544d2e710d247218caf12e1cb890a4602e5eb93d4bbeabd018e655148a.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
+| Your product has been added to cart. | (completed)" width="0"/>
+                <img src="a0d1813eb41cf6ecf1d1fc23a13903618501dc6c251fb7162a2ff6ab5dc0bdcf.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba" width="0"/>
+                <img src="a0d1813eb41cf6ecf1d1fc23a13903618501dc6c251fb7162a2ff6ab5dc0bdcf.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible" width="0"/>
+                <img src="a0d1813eb41cf6ecf1d1fc23a13903618501dc6c251fb7162a2ff6ab5dc0bdcf.png" title=" User clicks on Bot&oacute;n Continue Shopping" width="0"/>
+                <img src="a0d1813eb41cf6ecf1d1fc23a13903618501dc6c251fb7162a2ff6ab5dc0bdcf.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible (completed)" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User limpia el carrito despues cada prueba" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User hace click en menu Cart" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User clicks on Opci&oacute;n CART en el men&uacute; de navegaci&oacute;n" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User hace click en menu Cart (completed)" width="0"/>
+                <img src="753d0fca51cbe424e5d2620f1d89de1aaec022f18001cbd173d4853e5783d7cf.png" title=" User wait until angular is ready" width="0"/>
+                <img src="753d0fca51cbe424e5d2620f1d89de1aaec022f18001cbd173d4853e5783d7cf.png" title=" User limpia el carrito despues cada prueba (completed)" width="0"/>
+
+                <img src="753d0fca51cbe424e5d2620f1d89de1aaec022f18001cbd173d4853e5783d7cf.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba (completed): <span class='success-color'>SUCCESS</span>" width="0"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 4.1.0</span>
+</div>
+</body>
+</html>
