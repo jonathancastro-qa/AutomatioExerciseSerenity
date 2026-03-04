@@ -30,60 +30,43 @@ jobs:
           java-version: 21
           cache: maven
 
-      # 3. Instalar dependencias graficas necesarias
-      - name: Instalar dependencias graficas
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq wget unzip xvfb \
-            libnss3 libxss1 libasound2t64 fonts-liberation libatk-bridge2.0-0 libgtk-3-0
+      # 3. Instalar Chrome y ChromeDriver con versiones garantizadas compatibles
+      - name: Instalar Chrome y ChromeDriver
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+        with:
+          chrome-version: stable
 
-      # 4. Instalar Chrome for Testing y ChromeDriver compatible
-      - name: Instalar Chrome for Testing con ChromeDriver
-        run: |
-          # Eliminar Chrome del sistema para evitar conflictos de version
-          sudo apt-get remove -y google-chrome-stable || true
-          sudo rm -f /usr/bin/google-chrome /usr/bin/chromium-browser
-
-          # Instalar Chrome for Testing (version Stable)
-          mkdir -p /opt/chrome
-          curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
-            | jq -r '.channels.Stable.downloads.chrome[] | select(.platform=="linux64") | .url' \
-            | xargs wget -O chrome-linux.zip
-          unzip chrome-linux.zip -d /opt/chrome
-          sudo ln -s /opt/chrome/chrome-linux64/chrome /usr/bin/google-chrome
-
-          # Instalar ChromeDriver de la misma version Stable
-          curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
-            | jq -r '.channels.Stable.downloads.chromedriver[] | select(.platform=="linux64") | .url' \
-            | xargs wget -O chromedriver-linux.zip
-          unzip chromedriver-linux.zip
-          chmod +x chromedriver-linux64/chromedriver
-          sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
+      # 4. Instalar Xvfb
+      - name: Instalar Xvfb
+        run: sudo apt-get install -y xvfb
 
       # 5. Verificar instalacion de Chrome y ChromeDriver
       - name: Verificar instalacion de Chrome y ChromeDriver
         run: |
-          which google-chrome
-          google-chrome --version
-          which chromedriver
-          chromedriver --version
+          echo "Chrome path: ${{ steps.setup-chrome.outputs.chrome-path }}"
+          ${{ steps.setup-chrome.outputs.chrome-path }} --version
+          echo "ChromeDriver path: ${{ steps.setup-chrome.outputs.chromedriver-path }}"
+          ${{ steps.setup-chrome.outputs.chromedriver-path }} --version
 
       # 6. Ejecutar pruebas Serenity con Xvfb
       - name: Ejecutar pruebas Serenity
         run: |
-          xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' \
-          mvn clean verify -Dwebdriver.driver=chrome \
-            -Dwebdriver.chrome.driver=/usr/local/bin/chromedriver \
-            -Dchrome.switches="--headless,--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--remote-debugging-port=9222" \
+          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
+          mvn clean verify \
+            -Dwebdriver.driver=chrome \
+            -Dwebdriver.chrome.driver=${{ steps.setup-chrome.outputs.chromedriver-path }} \
+            -Dwebdriver.chrome.binary=${{ steps.setup-chrome.outputs.chrome-path }} \
+            -Dchrome.switches="--headless=new,--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--window-size=1920,1080" \
             -Dserenity.outputDirectory=target/site/serenity \
-            -e -X
+            -e
 
       # 6.1. Imprimir errores de failsafe directamente en el log
       - name: Imprimir errores de failsafe
         if: failure()
         run: |
           echo "===== FAILSAFE REPORTS ====="
-          find target/failsafe-reports -name "*.txt" | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
+          find target/failsafe-reports -name "*.txt" 2>/dev/null | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
           echo "===== SUREFIRE REPORTS ====="
           find target/surefire-reports -name "*.txt" 2>/dev/null | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
 
