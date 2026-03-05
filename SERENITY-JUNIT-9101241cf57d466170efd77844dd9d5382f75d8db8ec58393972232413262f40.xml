@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Cierre de sesión" skipped="0" tests="1" time="0.98" timestamp="2026-03-05 04:59:51"><testcase name="Al realizar el cierre de sesión se es redireccionado al la pagina inicial"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Cierre de sesión" skipped="0" tests="1" time="1.14" timestamp="2026-03-05 05:11:15"><testcase name="Al realizar el cierre de sesión se es redireccionado al la pagina inicial"/></testsuite>

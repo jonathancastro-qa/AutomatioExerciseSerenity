@@ -152,7 +152,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 05-03-2026 04:58</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 05-03-2026 05:10</span>
     <br style="clear:left"/>
 </div>
 
@@ -208,9 +208,9 @@ Para asegurarme de que el sistema autentique correctamente según escenarios de 
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">El usuario intenta iniciar sesi&oacute;n introduciendo un password incorrecto
+                                <span class="error-color">El usuario intenta iniciar sesi&oacute;n introduciendo un password incorrecto
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -227,6 +227,42 @@ Para asegurarme de que el sistema autentique correctamente según escenarios de 
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">No such element exception: no such element: Unable to locate element: {'method':'xpath','selector':'//p[contains(text(),'Your email or password is incorrect!')]'}</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.NoSuchElementException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.automationexercise.questions.LoginPage.lambda$isErrorMessageVisible$3(LoginPage.java:27)<br />com.automationexercise.stepdefinitions.auth.WrongPassword.validateErrorMessage(WrongPassword.java:30)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                    <div class="panel-body">
+                        <a href="pagesource17426245428124720349.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
                 <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" Given que el usuario abre la p&aacute;gina automationexercise.com" width="0"/>
@@ -234,38 +270,36 @@ Para asegurarme de que el sistema autentique correctamente según escenarios de 
                 <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User opens the browser at https://automationexercise.com/" width="0"/>
                 <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User abre la p&aacute;gina automationexercise.com (completed)" width="0"/>
                 <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" Given que el usuario abre la p&aacute;gina automationexercise.com (completed)" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" When hace click en la opci&oacute;n Signup Login" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User clicks on Opci&oacute;n dentro del menu con el texto 'Signup / Login' en la pagina principal" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN (completed)" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" When hace click en la opci&oacute;n Signup Login (completed)" width="0"/>
-                <img src="12f1327dfe883850d2145a51e5d9e59a4d1d411ce6ab3b32bb62ebfb80d2cdbc.png" title=" And trata de iniciar sesi&oacute;n ingresando un password incorrecto" width="0"/>
-                <img src="12f1327dfe883850d2145a51e5d9e59a4d1d411ce6ab3b32bb62ebfb80d2cdbc.png" title=" User ingresa credenciales v&aacute;lidas" width="0"/>
-                <img src="12f1327dfe883850d2145a51e5d9e59a4d1d411ce6ab3b32bb62ebfb80d2cdbc.png" title=" User ingresa email" width="0"/>
-                <img src="12f1327dfe883850d2145a51e5d9e59a4d1d411ce6ab3b32bb62ebfb80d2cdbc.png" title=" User enters 'test@flare.com' into Campo Email" width="0"/>
-                <img src="12f1327dfe883850d2145a51e5d9e59a4d1d411ce6ab3b32bb62ebfb80d2cdbc.png" title=" User ingresa email (completed)" width="0"/>
-                <img src="9f0dd60a1930ad4be97ae8da02508e9bb01a0cc0e2bebecf180a56cf9568c4fa.png" title=" User ingresa password" width="0"/>
-                <img src="9f0dd60a1930ad4be97ae8da02508e9bb01a0cc0e2bebecf180a56cf9568c4fa.png" title=" User enters 'wrong_password' into Campo Password" width="0"/>
-                <img src="9f0dd60a1930ad4be97ae8da02508e9bb01a0cc0e2bebecf180a56cf9568c4fa.png" title=" User ingresa password (completed)" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" User Hace click en el bot&oacute;n Login" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" User clicks on Bot&oacute;n de Login" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" User Hace click en el bot&oacute;n Login (completed)" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" User ingresa credenciales v&aacute;lidas (completed)" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" And trata de iniciar sesi&oacute;n ingresando un password incorrecto (completed)" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" Then se muestra el mensaje de error
+                <img src="32efc420eb841cb90a1347689c72f34eba9fedadd9758e7a21827e7f0811672d.png" title=" When hace click en la opci&oacute;n Signup Login" width="0"/>
+                <img src="32efc420eb841cb90a1347689c72f34eba9fedadd9758e7a21827e7f0811672d.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN" width="0"/>
+                <img src="32efc420eb841cb90a1347689c72f34eba9fedadd9758e7a21827e7f0811672d.png" title=" User clicks on Opci&oacute;n dentro del menu con el texto 'Signup / Login' en la pagina principal" width="0"/>
+                <img src="32efc420eb841cb90a1347689c72f34eba9fedadd9758e7a21827e7f0811672d.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN (completed)" width="0"/>
+                <img src="32efc420eb841cb90a1347689c72f34eba9fedadd9758e7a21827e7f0811672d.png" title=" When hace click en la opci&oacute;n Signup Login (completed)" width="0"/>
+                <img src="c81cb9dc9e8e08411d5d620929138d12623d01a3f3f35913e6897ccf30620661.png" title=" And trata de iniciar sesi&oacute;n ingresando un password incorrecto" width="0"/>
+                <img src="c81cb9dc9e8e08411d5d620929138d12623d01a3f3f35913e6897ccf30620661.png" title=" User ingresa credenciales v&aacute;lidas" width="0"/>
+                <img src="c81cb9dc9e8e08411d5d620929138d12623d01a3f3f35913e6897ccf30620661.png" title=" User ingresa email" width="0"/>
+                <img src="c81cb9dc9e8e08411d5d620929138d12623d01a3f3f35913e6897ccf30620661.png" title=" User enters 'test@flare.com' into Campo Email" width="0"/>
+                <img src="c81cb9dc9e8e08411d5d620929138d12623d01a3f3f35913e6897ccf30620661.png" title=" User ingresa email (completed)" width="0"/>
+                <img src="f089adb9ed79f29f9f647b4e65c9a26cfdb7d0b1b2c7b46cee3c9936c4b6e959.png" title=" User ingresa password" width="0"/>
+                <img src="f089adb9ed79f29f9f647b4e65c9a26cfdb7d0b1b2c7b46cee3c9936c4b6e959.png" title=" User enters 'wrong_password' into Campo Password" width="0"/>
+                <img src="f089adb9ed79f29f9f647b4e65c9a26cfdb7d0b1b2c7b46cee3c9936c4b6e959.png" title=" User ingresa password (completed)" width="0"/>
+                <img src="61244e9497a5c08e13b666e0ac13162ea11d83f97b29388647e3d7b1b0b77bb9.png" title=" User Hace click en el bot&oacute;n Login" width="0"/>
+                <img src="61244e9497a5c08e13b666e0ac13162ea11d83f97b29388647e3d7b1b0b77bb9.png" title=" User clicks on Bot&oacute;n de Login" width="0"/>
+                <img src="61244e9497a5c08e13b666e0ac13162ea11d83f97b29388647e3d7b1b0b77bb9.png" title=" User Hace click en el bot&oacute;n Login (completed)" width="0"/>
+                <img src="61244e9497a5c08e13b666e0ac13162ea11d83f97b29388647e3d7b1b0b77bb9.png" title=" User ingresa credenciales v&aacute;lidas (completed)" width="0"/>
+                <img src="61244e9497a5c08e13b666e0ac13162ea11d83f97b29388647e3d7b1b0b77bb9.png" title=" And trata de iniciar sesi&oacute;n ingresando un password incorrecto (completed)" width="0"/>
+                <img src="0d8f5e3eb94cf40628c8a6fa083ad3299b59dbf3fdeb99b7dfbdc8bd69d7f5c0.png" title=" Then se muestra el mensaje de error
 | Your email or password is incorrect! |" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" Then Se muestra el mensaje de error: Your email or password is incorrect! should be 'Your email or password is incorrect!'" width="0"/>
-                <img src="8415659bf91a26268820cb8041185588eaa76934667f297a6ef8833e3fd782c8.png" title=" Then se muestra el mensaje de error
-| Your email or password is incorrect! | (completed)" width="0"/>
-                <img src="842a0521f723a314b0affa517666822f0d7f2f059bcf369af17729ecf4ed5094.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba" width="0"/>
-                <img src="842a0521f723a314b0affa517666822f0d7f2f059bcf369af17729ecf4ed5094.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible" width="0"/>
-                <img src="99949e04a6775f1013edf90380fbbf220c2517a5baf6677b1ba9242338343ef8.png" title=" User limpia el carrito despues cada prueba" width="0"/>
-                <img src="99949e04a6775f1013edf90380fbbf220c2517a5baf6677b1ba9242338343ef8.png" title=" User hace click en menu Cart" width="0"/>
-                <img src="99949e04a6775f1013edf90380fbbf220c2517a5baf6677b1ba9242338343ef8.png" title=" User clicks on Opci&oacute;n CART en el men&uacute; de navegaci&oacute;n" width="0"/>
-                <img src="99949e04a6775f1013edf90380fbbf220c2517a5baf6677b1ba9242338343ef8.png" title=" User hace click en menu Cart (completed)" width="0"/>
+                <img src="0d8f5e3eb94cf40628c8a6fa083ad3299b59dbf3fdeb99b7dfbdc8bd69d7f5c0.png" title=" Then Se muestra el mensaje de error: Your email or password is incorrect! should be 'Your email or password is incorrect!'" width="0"/>
+                <img src="6559b62d8af82188ee8bf52d3f674b48c60eaa4ce98ec77c233c416b9b1219a3.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba" width="0"/>
+                <img src="6559b62d8af82188ee8bf52d3f674b48c60eaa4ce98ec77c233c416b9b1219a3.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible" width="0"/>
+                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User limpia el carrito despues cada prueba" width="0"/>
+                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User hace click en menu Cart" width="0"/>
+                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User clicks on Opci&oacute;n CART en el men&uacute; de navegaci&oacute;n" width="0"/>
+                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User hace click en menu Cart (completed)" width="0"/>
                 <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User limpia el carrito despues cada prueba (completed)" width="0"/>
 
-                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba (completed): <span class='success-color'>SUCCESS</span>" width="0"/>
+                <img src="ce58bf9e22d4daadbfbed6dfae04e07c258a35abc340b1a9c8aa850788d7bd8d.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba (completed): <span class='error-color'>ERROR</span>" width="0"/>
             </div>
         </div>
 

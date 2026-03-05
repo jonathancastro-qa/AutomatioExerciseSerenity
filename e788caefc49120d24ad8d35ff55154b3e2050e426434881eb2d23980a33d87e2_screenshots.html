@@ -152,7 +152,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 05-03-2026 04:56</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 05-03-2026 05:08</span>
     <br style="clear:left"/>
 </div>
 
@@ -208,9 +208,9 @@ Para asegurarme de que se puede navegar,  actualizar y elminar productos exitosa
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-exclamation-triangle-fill error-icon fa-2x' title='ERROR'></i></a></span>
                             <span class="test-case-title">
-                                <span class="success-color">El usuario observa un modal de confirmacion al agregar productos al carrito de compras
+                                <span class="error-color">El usuario observa un modal de confirmacion al agregar productos al carrito de compras
                                     <span class="related-issue-title"></span>
                                 </span>
                             </span>
@@ -227,49 +227,84 @@ Para asegurarme de que se puede navegar,  actualizar y elminar productos exitosa
 
     <div id="beforetable"></div>
     <div id="contenttilttle">
+            <div class="screenshotFailure panel panel-danger">
+    <div style="display:block">
+        <div class="table">
+            <div class="row">
+                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
+                    <span class="error-message error-message-title">Stale element reference exception: stale element reference: stale element not found in the current frame</span>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
+                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
+                </div>
+             </div>
+        </div>
+    <div>
+
+    <!-- Details Section -->
+    <div class="row stacktrace-details">
+      <div class="col">
+        <div class="collapse multi-collapse" id="stacktraceModal-overall">
+            <div class="card">
+                <div class="card-header">
+                    <h4>org.openqa.selenium.StaleElementReferenceException </h4>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <pre>com.automationexercise.tasks.cart.ProductCart.lambda$clearCart$0(ProductCart.java:83)<br />com.automationexercise.stepdefinitions.Setup.checkItemOnCartBeforeLogout(Setup.java:27)<br /></pre>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+                    <div class="panel-body">
+                        <a href="pagesource10771672378923963574.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    </div>
+            </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" Given que el usuario ha iniciado sesi&oacute;n exitosamente en automationexercise.com" width="0"/>
-                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User abre la p&aacute;gina automationexercise.com" width="0"/>
-                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User opens the browser at https://automationexercise.com/" width="0"/>
-                <img src="48d381df69511a092dda1366e5cec9d189c90d2b7bc69979aa94998be1628921.png" title=" User abre la p&aacute;gina automationexercise.com (completed)" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User clicks on Opci&oacute;n dentro del menu con el texto 'Signup / Login' en la pagina principal" width="0"/>
-                <img src="f081e8d925bed3f7ca68bbd4d5cc7e74c9c7aa731324fb91a514ffc6d80211bb.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN (completed)" width="0"/>
-                <img src="73402caa08936dfb30211e4a1ea2960f32c2f0c0260d04b3e28de16be121b4a4.png" title=" User ingresa credenciales v&aacute;lidas" width="0"/>
-                <img src="73402caa08936dfb30211e4a1ea2960f32c2f0c0260d04b3e28de16be121b4a4.png" title=" User ingresa email" width="0"/>
-                <img src="73402caa08936dfb30211e4a1ea2960f32c2f0c0260d04b3e28de16be121b4a4.png" title=" User enters 'test@flare.com' into Campo Email" width="0"/>
-                <img src="73402caa08936dfb30211e4a1ea2960f32c2f0c0260d04b3e28de16be121b4a4.png" title=" User ingresa email (completed)" width="0"/>
-                <img src="f68c2ee2274122be164cb70c7933330f84bf7504eca49ba6f949e78066dfe20a.png" title=" User ingresa password" width="0"/>
-                <img src="f68c2ee2274122be164cb70c7933330f84bf7504eca49ba6f949e78066dfe20a.png" title=" User enters 'Test2025' into Campo Password" width="0"/>
-                <img src="f68c2ee2274122be164cb70c7933330f84bf7504eca49ba6f949e78066dfe20a.png" title=" User ingresa password (completed)" width="0"/>
+                <img src="513b3ccbf239f20f5fc6d45d5e572c61eab1d376214d03510739b42b916ba9a8.png" title=" Given que el usuario ha iniciado sesi&oacute;n exitosamente en automationexercise.com" width="0"/>
+                <img src="513b3ccbf239f20f5fc6d45d5e572c61eab1d376214d03510739b42b916ba9a8.png" title=" User abre la p&aacute;gina automationexercise.com" width="0"/>
+                <img src="513b3ccbf239f20f5fc6d45d5e572c61eab1d376214d03510739b42b916ba9a8.png" title=" User opens the browser at https://automationexercise.com/" width="0"/>
+                <img src="513b3ccbf239f20f5fc6d45d5e572c61eab1d376214d03510739b42b916ba9a8.png" title=" User abre la p&aacute;gina automationexercise.com (completed)" width="0"/>
+                <img src="e1bce9cd5a535cfc1ea91e235c2b9d329ab60fb3f82a6edc47ca74dc0e8d15ae.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN" width="0"/>
+                <img src="e1bce9cd5a535cfc1ea91e235c2b9d329ab60fb3f82a6edc47ca74dc0e8d15ae.png" title=" User clicks on Opci&oacute;n dentro del menu con el texto 'Signup / Login' en la pagina principal" width="0"/>
+                <img src="e1bce9cd5a535cfc1ea91e235c2b9d329ab60fb3f82a6edc47ca74dc0e8d15ae.png" title=" User hace click en la opci&oacute;n del menu principal SIGNUP / LOGIN (completed)" width="0"/>
+                <img src="fbd0c6576e5b6fbaa1129db1cae2f6dce4b5e3a3e4cac5eb53bd991c87b3ab00.png" title=" User ingresa credenciales v&aacute;lidas" width="0"/>
+                <img src="fbd0c6576e5b6fbaa1129db1cae2f6dce4b5e3a3e4cac5eb53bd991c87b3ab00.png" title=" User ingresa email" width="0"/>
+                <img src="fbd0c6576e5b6fbaa1129db1cae2f6dce4b5e3a3e4cac5eb53bd991c87b3ab00.png" title=" User enters 'test@flare.com' into Campo Email" width="0"/>
+                <img src="fbd0c6576e5b6fbaa1129db1cae2f6dce4b5e3a3e4cac5eb53bd991c87b3ab00.png" title=" User ingresa email (completed)" width="0"/>
+                <img src="a2f92180a5ad18311eb8d13ddd96f48669b6c9aa6d246df05898507b04b6f325.png" title=" User ingresa password" width="0"/>
+                <img src="a2f92180a5ad18311eb8d13ddd96f48669b6c9aa6d246df05898507b04b6f325.png" title=" User enters 'Test2025' into Campo Password" width="0"/>
+                <img src="a2f92180a5ad18311eb8d13ddd96f48669b6c9aa6d246df05898507b04b6f325.png" title=" User ingresa password (completed)" width="0"/>
                 <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User Hace click en el bot&oacute;n Login" width="0"/>
                 <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User clicks on Bot&oacute;n de Login" width="0"/>
                 <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User Hace click en el bot&oacute;n Login (completed)" width="0"/>
                 <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" User ingresa credenciales v&aacute;lidas (completed)" width="0"/>
                 <img src="046b2991eafe20d9b8ddb0d5f0451ac64874e73afc14365e0bf6ce45c839c78c.png" title=" Given que el usuario ha iniciado sesi&oacute;n exitosamente en automationexercise.com (completed)" width="0"/>
-                <img src="8cb8b019fc7228fba96b637a0ec309cb40e4242dd1bde191c7a2f0a7f906a49a.png" title=" When hace click en el boton Add to cart de un producto" width="0"/>
-                <img src="8cb8b019fc7228fba96b637a0ec309cb40e4242dd1bde191c7a2f0a7f906a49a.png" title=" User hace click en el boton Add to cart del producto Blue Top" width="0"/>
-                <img src="8cb8b019fc7228fba96b637a0ec309cb40e4242dd1bde191c7a2f0a7f906a49a.png" title=" User clicks on Producto Blue Top del inventario" width="0"/>
-                <img src="8cb8b019fc7228fba96b637a0ec309cb40e4242dd1bde191c7a2f0a7f906a49a.png" title=" User hace click en el boton Add to cart del producto Blue Top (completed)" width="0"/>
-                <img src="8cb8b019fc7228fba96b637a0ec309cb40e4242dd1bde191c7a2f0a7f906a49a.png" title=" When hace click en el boton Add to cart de un producto (completed)" width="0"/>
-                <img src="d11df69b357516dda54983dbd67e521198babe8178efb2d2cb6f9bef37f8ad4b.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
+                <img src="7a99aa2ff042b5bac73c2f04eb3531fbf50935b502d5beb9fe88abf5ff1fc175.png" title=" When hace click en el boton Add to cart de un producto" width="0"/>
+                <img src="7a99aa2ff042b5bac73c2f04eb3531fbf50935b502d5beb9fe88abf5ff1fc175.png" title=" User hace click en el boton Add to cart del producto Blue Top" width="0"/>
+                <img src="7a99aa2ff042b5bac73c2f04eb3531fbf50935b502d5beb9fe88abf5ff1fc175.png" title=" User clicks on Producto Blue Top del inventario" width="0"/>
+                <img src="7a99aa2ff042b5bac73c2f04eb3531fbf50935b502d5beb9fe88abf5ff1fc175.png" title=" User hace click en el boton Add to cart del producto Blue Top (completed)" width="0"/>
+                <img src="7a99aa2ff042b5bac73c2f04eb3531fbf50935b502d5beb9fe88abf5ff1fc175.png" title=" When hace click en el boton Add to cart de un producto (completed)" width="0"/>
+                <img src="a24eaf6a94c02db471b4b41a11e4c7d73dd24ca54e163eabb036de8c837e42dc.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
 | Your product has been added to cart. |" width="0"/>
-                <img src="d11df69b357516dda54983dbd67e521198babe8178efb2d2cb6f9bef37f8ad4b.png" title=" Then Se muestra el mensaje de confirmaci&amp;oacute;n: Your product has been added to cart. should be 'Your product has been added to cart.'" width="0"/>
-                <img src="d11df69b357516dda54983dbd67e521198babe8178efb2d2cb6f9bef37f8ad4b.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
+                <img src="a24eaf6a94c02db471b4b41a11e4c7d73dd24ca54e163eabb036de8c837e42dc.png" title=" Then Se muestra el mensaje de confirmaci&amp;oacute;n: Your product has been added to cart. should be 'Your product has been added to cart.'" width="0"/>
+                <img src="a24eaf6a94c02db471b4b41a11e4c7d73dd24ca54e163eabb036de8c837e42dc.png" title=" Then se muestra el mensaje de confirmaci&oacute;n
 | Your product has been added to cart. | (completed)" width="0"/>
-                <img src="67164034a5cb96c912d6922db3f0323db5510b68676db1e21788f926c057cb90.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba" width="0"/>
-                <img src="67164034a5cb96c912d6922db3f0323db5510b68676db1e21788f926c057cb90.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible" width="0"/>
-                <img src="67164034a5cb96c912d6922db3f0323db5510b68676db1e21788f926c057cb90.png" title=" User clicks on Bot&oacute;n Continue Shopping" width="0"/>
-                <img src="67164034a5cb96c912d6922db3f0323db5510b68676db1e21788f926c057cb90.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible (completed)" width="0"/>
-                <img src="adb445bfa15e7bfc4564ee5421c896d41d8827ad12a84f625e0c041b29e17962.png" title=" User limpia el carrito despues cada prueba" width="0"/>
-                <img src="adb445bfa15e7bfc4564ee5421c896d41d8827ad12a84f625e0c041b29e17962.png" title=" User hace click en menu Cart" width="0"/>
-                <img src="adb445bfa15e7bfc4564ee5421c896d41d8827ad12a84f625e0c041b29e17962.png" title=" User clicks on Opci&oacute;n CART en el men&uacute; de navegaci&oacute;n" width="0"/>
-                <img src="adb445bfa15e7bfc4564ee5421c896d41d8827ad12a84f625e0c041b29e17962.png" title=" User hace click en menu Cart (completed)" width="0"/>
-                <img src="014593c476c02d46413d23fdec0840877357809f0c844b2f20ec113554ba82d0.png" title=" User wait until angular is ready" width="0"/>
-                <img src="014593c476c02d46413d23fdec0840877357809f0c844b2f20ec113554ba82d0.png" title=" User limpia el carrito despues cada prueba (completed)" width="0"/>
+                <img src="e8d591e6c430b501919f21b93f54158bf7d7d14dcb48ffd5970696a04813ae4b.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba" width="0"/>
+                <img src="e8d591e6c430b501919f21b93f54158bf7d7d14dcb48ffd5970696a04813ae4b.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible" width="0"/>
+                <img src="e8d591e6c430b501919f21b93f54158bf7d7d14dcb48ffd5970696a04813ae4b.png" title=" User clicks on Bot&oacute;n Continue Shopping" width="0"/>
+                <img src="e8d591e6c430b501919f21b93f54158bf7d7d14dcb48ffd5970696a04813ae4b.png" title=" User hace click en el bot&oacute;n 'Continue Shopping' si es visible (completed)" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User limpia el carrito despues cada prueba" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User hace click en menu Cart" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User clicks on Opci&oacute;n CART en el men&uacute; de navegaci&oacute;n" width="0"/>
+                <img src="01650648413d5583ddbb45779d1a8c5ebe33c76d8f50e30b5c135ee82f2dcd0e.png" title=" User hace click en menu Cart (completed)" width="0"/>
+                <img src="a2e38c47231017310428363f21339eb59bf9470820f6f3128d596d64f2ee3a5d.png" title=" User wait until angular is ready" width="0"/>
 
-                <img src="014593c476c02d46413d23fdec0840877357809f0c844b2f20ec113554ba82d0.png" title=" User si hay items en el carrito los elimina antes de salir de la prueba (completed): <span class='success-color'>SUCCESS</span>" width="0"/>
+                <img src="753d0fca51cbe424e5d2620f1d89de1aaec022f18001cbd173d4853e5783d7cf.png" title=" User limpia el carrito despues cada prueba (completed): <span class='error-color'>ERROR</span>" width="0"/>
             </div>
         </div>
 
