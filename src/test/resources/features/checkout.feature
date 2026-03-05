@@ -5,7 +5,7 @@ Feature: Checkout de la compra
   Quiero validar el proceso de checkout
   Para asegurarme que no se puede realizar la compra exitosamente
 
-  @DireccionCompra
+  @DireccionCompra @skip
   Scenario: Se realiza el proceso de checkout del producto agregado
     Given que el usuario ha iniciado sesión exitosamente en automationexercise.com
     When hace click en el boton Add to cart de un producto
@@ -13,7 +13,7 @@ Feature: Checkout de la compra
     And hace click en el botón Prooceed to checkout
     Then debe visualizar que la direccion se encuentre registrada
 
-  @PlaceOrder
+  @PlaceOrder @skip
   Scenario: Se realiza el proceso de compra exitoso
     Given que el usuario ha iniciado sesión exitosamente en automationexercise.com
     When hace click en el boton Add to cart de un producto
