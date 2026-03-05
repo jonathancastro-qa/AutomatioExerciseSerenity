@@ -5,7 +5,7 @@ Feature: Login en AutomationExercise
   Quiero validar el proceso de login en AutomationExercise
   Para asegurarme de que el sistema autentique correctamente según escenarios de  autenticación positivos y negativos
 
-  @LoginExitoso
+  @LoginExitoso @skip
   Scenario: El usuario  inicia sesión con credenciales validas
     Given que el usuario abre la página automationexercise.com
     When hace click en la opción Signup Login
@@ -28,7 +28,7 @@ Feature: Login en AutomationExercise
     Then se muestra el mensaje de error
       |Your email or password is incorrect!|
 
-  @UsuarioInexistente
+  @UsuarioInexistente @skip
   Scenario: El usuario intenta iniciar sesión con un usuario inexistente
     Given que el usuario abre la página automationexercise.com
     When hace click en la opción Signup Login

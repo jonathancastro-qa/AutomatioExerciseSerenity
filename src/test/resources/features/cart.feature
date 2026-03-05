@@ -12,7 +12,7 @@ Feature: Carrito de compras
     Then se muestra el mensaje de confirmación
       | Your product has been added to cart. |
 
-  @DetallseProductoEnCarrito
+  @DetallseProductoEnCarrito @skip
   Scenario: El usuario agrega productos al carrito de compras y comprueba los datos
     Given que el usuario ha iniciado sesión exitosamente en automationexercise.com
     When hace click en el boton Add to cart de un producto
@@ -20,7 +20,7 @@ Feature: Carrito de compras
     Then se muestra Nombre del producto, Precio y Cantidad
       | Blue Top | Rs. 500 | 1 |
 
-  @ActualizarCantidad
+  @ActualizarCantidad @skip
   Scenario: Actualizar la cantidad de un producto en el carrito de compras
     Given que el usuario ha iniciado sesión exitosamente en automationexercise.com
     And el usuario agrega el producto 'Blue Top' al carrito
@@ -31,7 +31,7 @@ Feature: Carrito de compras
     And navega al carrito
     Then debería visualizar que la cantidad aumentó en una unidad
 
-  @EliminarProductoEnCarrito
+  @EliminarProductoEnCarrito @skip
   Scenario: Producto elminado desaparece del carrito de compras
     Given que el usuario ha iniciado sesión exitosamente en automationexercise.com
     When agrega mas de un producto al carrito

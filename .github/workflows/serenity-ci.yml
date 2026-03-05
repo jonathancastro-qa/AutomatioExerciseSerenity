@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - qa
+  pull_request:
+    branches:
+      - qa
   workflow_dispatch:
 
 permissions:
@@ -15,11 +18,11 @@ jobs:
     timeout-minutes: 20
 
     steps:
-      # 🔹 1. Checkout del repositorio
+      # 1. Checkout del repositorio
       - name: Checkout del repositorio
         uses: actions/checkout@v4
 
-      # 🔹 2. Configurar JDK 21
+      # 2. Configurar JDK 21
       - name: Configurar JDK 21
         uses: actions/setup-java@v4
         with:
@@ -27,65 +30,89 @@ jobs:
           java-version: 21
           cache: maven
 
-      # 🔹 3. Instalar dependencias gráficas necesarias
-      - name: Instalar dependencias gráficas
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y jq wget unzip xvfb \
-            libnss3 libxss1 libasound2t64 fonts-liberation libatk-bridge2.0-0 libgtk-3-0
+      # 3. Instalar Chrome estable
+      - name: Instalar Chrome
+        uses: browser-actions/setup-chrome@v1
+        id: setup-chrome
+        with:
+          chrome-version: stable
 
-      # 🔹 4. Instalar Chrome for Testing y ChromeDriver compatible
-      - name: Instalar Chrome for Testing con ChromeDriver
+      # 4. Instalar ChromeDriver de la misma version que Chrome
+      - name: Instalar ChromeDriver compatible
         run: |
-          mkdir -p /opt/chrome
-          curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
-            | jq -r '.channels.Stable.downloads.chrome[] | select(.platform=="linux64") | .url' \
-            | xargs wget -O chrome-linux.zip
-          unzip chrome-linux.zip -d /opt/chrome
-          sudo rm -f /usr/bin/google-chrome
-          sudo ln -s /opt/chrome/chrome-linux64/chrome /usr/bin/google-chrome
+          sudo apt-get install -y xvfb
 
-          curl -s https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions-with-downloads.json \
-            | jq -r '.channels.Stable.downloads.chromedriver[] | select(.platform=="linux64") | .url' \
-            | xargs wget -O chromedriver-linux.zip
-          unzip chromedriver-linux.zip
+          # Obtener version exacta de Chrome instalado
+          CHROME_VERSION=$("${{ steps.setup-chrome.outputs.chrome-path }}" --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+          echo "Chrome version detectada: $CHROME_VERSION"
+
+          # Descargar ChromeDriver de la misma version
+          CHROMEDRIVER_URL="https://storage.googleapis.com/chrome-for-testing-public/${CHROME_VERSION}/linux64/chromedriver-linux64.zip"
+          echo "Descargando ChromeDriver desde: $CHROMEDRIVER_URL"
+
+          wget -q "$CHROMEDRIVER_URL" -O chromedriver.zip
+          unzip -q chromedriver.zip
           chmod +x chromedriver-linux64/chromedriver
           sudo mv chromedriver-linux64/chromedriver /usr/local/bin/chromedriver
 
-      # 🔹 5. Diagnóstico: verificar rutas y versiones
-      - name: Verificar instalación de Chrome y ChromeDriver
-        run: |
-          which google-chrome
-          google-chrome --version
-          which chromedriver
-          chromedriver --version
+          # Exportar paths como variables de entorno
+          echo "CHROME_BIN=${{ steps.setup-chrome.outputs.chrome-path }}" >> $GITHUB_ENV
+          echo "CHROMEDRIVER_BIN=/usr/local/bin/chromedriver" >> $GITHUB_ENV
 
-      # 🔹 6. Ejecutar pruebas Serenity con Xvfb y flags adicionales
+      # 5. Verificar versiones
+      - name: Verificar Chrome y ChromeDriver
+        run: |
+          echo "Chrome: $($CHROME_BIN --version)"
+          echo "ChromeDriver: $($CHROMEDRIVER_BIN --version)"
+
+      # 6. Ejecutar pruebas Serenity con Xvfb
       - name: Ejecutar pruebas Serenity
         run: |
-          xvfb-run --auto-servernum --server-args='-screen 0 1024x768x24' \
-          mvn clean verify -Dwebdriver.driver=chrome \
-            -Dchrome.switches="--headless,--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--remote-debugging-port=9222" \
+          xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' \
+          mvn clean verify \
+            -Dwebdriver.driver=chrome \
+            -Dwebdriver.chrome.driver="$CHROMEDRIVER_BIN" \
+            -Dwebdriver.chrome.binary="$CHROME_BIN" \
+            -Dchrome.switches="--headless=new,--no-sandbox,--disable-dev-shm-usage,--disable-gpu,--window-size=1920,1080" \
             -Dserenity.outputDirectory=target/site/serenity \
-            -e -X
+            -e
 
-      # 🔹 7. Regenerar reporte Serenity
+      # 6.1. Imprimir errores de failsafe directamente en el log
+      - name: Imprimir errores de failsafe
+        if: failure()
+        run: |
+          echo "===== FAILSAFE REPORTS ====="
+          find target/failsafe-reports -name "*.txt" 2>/dev/null | xargs -I {} sh -c 'echo "--- {} ---"; cat {}'
+
+      # 6.2. Guardar reportes de fallos Maven como artefacto
+      - name: Guardar failsafe-reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failsafe-reports
+          path: target/failsafe-reports/
+          if-no-files-found: warn
+
+      # 7. Regenerar reporte Serenity
       - name: Regenerar reporte Serenity
         if: success() || failure()
         run: mvn serenity:aggregate
 
-      # 🔹 8. Verificar contenido del reporte
+      # 8. Verificar contenido del reporte
       - name: Verificar contenido del reporte
+        if: success() || failure()
         run: ls -l target/site/serenity
 
-      # 🔹 9. Guardar reporte como artefacto
+      # 9. Guardar reporte como artefacto
       - name: Guardar reporte Serenity como artefacto
+        if: success() || failure()
         uses: actions/upload-artifact@v4
         with:
           name: reporte-serenity
           path: target/site/serenity
+          if-no-files-found: warn
 
-      # 🔹 10. Publicar en GitHub Pages
+      # 10. Publicar en GitHub Pages
       - name: Publicar reporte en GitHub Pages
         if: success() || failure()
         uses: peaceiris/actions-gh-pages@v3
